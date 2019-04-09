@@ -1,8 +1,17 @@
 USE codeup_test_db;
 
-SELECT * FROM albums WHERE artist = 'Metallica';
-SELECT release_date FROM albums WHERE artist = 'Meat Loaf';
-SELECT genre FROM albums WHERE name = "Nevermind";
-SELECT * FROM albums WHERE release_date > 1990;
-SELECT * FROM albums WHERE sales > 52;
-SELECT * FROM albums WHERE genre = 'Pop, Rock';
+SELECT * FROM albums;
+UPDATE albums SET sales = sales * 5;
+SELECT * FROM albums;
+
+
+SELECT * FROM albums WHERE release_date < 1980;
+UPDATE albums SET release_date = 1800 WHERE release_date < 1980;
+SELECT * FROM albums WHERE release_date < 1980;
+
+
+
+SELECT * FROM albums WHERE artist = 'Michael Jackson';
+UPDATE albums SET artist = 'Peter Jackson' WHERE release_date < 1980;
+SELECT * FROM albums WHERE artist = 'Peter Jackson';
+
