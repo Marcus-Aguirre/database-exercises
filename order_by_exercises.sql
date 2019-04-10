@@ -1,6 +1,6 @@
 USE employees;
 
-SELECT * FROM employees
+SELECT * FROM employeese
 WHERE (first_name = 'Irena' OR
  first_name = 'Vidya' OR
  first_name = 'Maya') AND gender = 'M'
