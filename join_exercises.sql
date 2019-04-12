@@ -17,6 +17,18 @@ ORDER BY dept_name;
 
 
 
+-- WALKTHROUGH VERSION
+/*SELECT d.dept_name AS 'department_name',
+       CONCAT(e.first_name, ' ', e.last_name) AS 'full_name'
+FROM employees e
+JOIN dept_manager dm on e.emp_no = dm.emp_no
+JOIN departments d on dm.dept_no = d.dept_no
+WHERE dm.to_date = '9999-01-01'
+ORDER BY dept_name;*/
+
+
+
+
 -- DEPARTMENT NAME, AND CURRENT MANAGER, ONLY WOMEN
 
 SELECT employees.departments.dept_name AS "Department Name",
@@ -30,23 +42,17 @@ WHERE employees.dept_manager.to_date = '9999-01-01'
 ORDER BY dept_name;
 
 
-/*SELECT d.dept_name AS 'department_name',
-       CONCAT(e.first_name, ' ', e.last_name) AS 'full_name'
-FROM employees e
-JOIN dept_manager dm on e.emp_no = dm.emp_no
-JOIN departments d on dm.dept_no = d.dept_no
-WHERE dm.to_date = '9999-01-01'
-ORDER BY dept_name;*/
 
 
 -- DEPARTMENT NAME, AND CURRENT # OF EMPLOYEES
 
 SELECT t.title, COUNT(title)
 FROM titles t
-JOIN dept_emp de ON de.emp_no = t.emp_no
-WHERE t.to_date > CURDATE() AND dept_no = 'd009' AND de.to_date > CURDATE()
+       JOIN dept_emp de ON de.emp_no = t.emp_no
+WHERE t.to_date > CURDATE()
+  AND dept_no = 'd009'
+  AND de.to_date > CURDATE()
 GROUP BY t.title;
-
 
 
 -- DEPARTMENT NAME, AND CURRENT MANAGER, CURRENT SALARY, ALL
